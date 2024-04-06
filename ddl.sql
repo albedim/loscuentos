@@ -2,18 +2,20 @@ CREATE DATABASE IF NOT EXISTS loscuentos;
 USE loscuentos;
 
 CREATE TABLE IF NOT EXISTS users (
-    user_id BIGINT PRIMARY KEY,
+    user_id INT PRIMARY KEY,
     username VARCHAR(14) NOT NULL,
     email VARCHAR(54) NOT NULL,
     password VARCHAR(54) NOT NULL,
     bio VARCHAR(150),
     created_on DATE NOT NULL,
-    image_path TEXT NOT NULL
+    image_path VARCHAR(100) NOT NULL,
+    banner_path VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS social_links (
     user_id BIGINT NOT NULL,
     name VARCHAR(24) NOT NULL,
+    value VARCHAR(54) NOT NULL,
     PRIMARY KEY (user_id, name),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

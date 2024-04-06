@@ -4,7 +4,7 @@ datasources:
     password:
     host: localhost
     port: 3306
-    db: testdb
+    db: loscuentos
 
 variables:
   - name: local

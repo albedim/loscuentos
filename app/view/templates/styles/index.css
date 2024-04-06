@@ -1,0 +1,15 @@
+.background{
+    background-color: #181818;
+}
+
+.menu{
+    background-color: #0F0F0F;
+}
+
+.story{
+    background-color: #9B871F;
+}
+
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
