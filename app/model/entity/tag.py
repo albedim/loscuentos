@@ -8,4 +8,3 @@ class Tag(Base):
     __tablename__ = 'tags'
     tag_id = Column(Integer, primary_key=True)
     name = Column(String(14), nullable=False)
-    stories = relationship("Story", secondary="story_tags")

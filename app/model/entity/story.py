@@ -10,3 +10,14 @@ class Story(Base):
     name = Column(String(84), nullable=False)
     created_on = Column(Date, nullable=False)
     author_id = Column(Integer, ForeignKey('users.user_id'))
+
+    def toJSON(self, **kvargs):
+        obj = {
+            'story_id': self.story_id,
+            'name': self.name,
+            'created_on': str(self.created_on),
+            'author_id': self.author_id
+        }
+        for kvarg in kvargs:
+            obj[kvarg] = kvargs[kvarg]
+        return obj
