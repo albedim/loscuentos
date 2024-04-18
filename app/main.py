@@ -14,6 +14,7 @@ from app.controller.story import storyRouter
 from app.controller.story_tag import storyTagRouter
 from app.controller.tag import tagRouter
 from app.controller.user import userRouter
+from app.services.story import StoryService
 
 app = FastAPI()
 # Qui aggiungiamo telle le nuove rotte presenti nella cartella controller
@@ -43,10 +44,12 @@ app.add_middleware(
 
 @app.get("/")
 def homepage(request: Request):
+    stories = StoryService.getHomepageStories(0)
+    print(stories)
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={"stories": [1,2,3]}
+        context={"stories": stories}
     )
 
 if __name__ == "__main__":
