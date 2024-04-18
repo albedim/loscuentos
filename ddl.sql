@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS social_links (
-    user_id BIGINT NOT NULL,
+    user_id INT NOT NULL,
     name VARCHAR(24) NOT NULL,
     value VARCHAR(54) NOT NULL,
     PRIMARY KEY (user_id, name),
@@ -24,12 +24,12 @@ CREATE TABLE IF NOT EXISTS stories (
     story_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(84) NOT NULL,
     created_on DATE NOT NULL,
-    author_id BIGINT NOT NULL,
+    author_id INT NOT NULL,
     FOREIGN KEY (author_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE IF NOT EXISTS favorites (
-    user_id BIGINT NOT NULL,
+    user_id INT NOT NULL,
     story_id INT NOT NULL,
     PRIMARY KEY (user_id, story_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS chapters (
 );
 
 CREATE TABLE IF NOT EXISTS interactions (
-    user_id BIGINT NOT NULL,
+    user_id INT NOT NULL,
     chapter_id INT NOT NULL,
     action INT NOT NULL,
     PRIMARY KEY (user_id, chapter_id),
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS interactions (
 
 CREATE TABLE IF NOT EXISTS comments (
     comment_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id BIGINT NOT NULL,
+    user_id INT NOT NULL,
     chapter_id INT NOT NULL,
     content varchar(250) NOT NULL,
     parent_comment_id INT,
@@ -75,10 +75,16 @@ CREATE TABLE IF NOT EXISTS story_tags (
 );
 
 CREATE TABLE IF NOT EXISTS favorite_tags (
-    user_id BIGINT NOT NULL,
+    user_id INT NOT NULL,
     tag_id INT NOT NULL,
     score INT NOT NULL,
     PRIMARY KEY (user_id, tag_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (tag_id) REFERENCES tags(tag_id)
 );
+
+
+
+
+
+
