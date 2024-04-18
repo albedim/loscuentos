@@ -9,6 +9,10 @@
         background-color: #181818;
     }
 
+    .background1{
+        background-color: red;
+    }
+
     .menu{
         background-color: #0F0F0F;
     }
@@ -34,7 +38,21 @@
           {% for item in stories %}
             <div class="p-4 pl-0">
               <div class="story rounded-md w-96 h-40">
-
+                <div class="gap-1 flex">
+                  {% for tag in item["tags"] %}
+                    <div style="background1 p-1">
+                      <p class="text-white">{{ tag.name }}</p>
+                    </div>
+                  {% endfor %}
+                </div>
+                <h2>{{ item["story"].name }}</h2>
+                <p>Capitolo #{{ item["chapter"].chapter_id }}</p>
+                <p>{{ item["chapter"].content }}</p>
+                <div>
+                  <button><</button>
+                  <p>{{ item["interaction"] }}</p>
+                  <button>></button>
+                </div>
               </div>
             </div>
           {% endfor %}
