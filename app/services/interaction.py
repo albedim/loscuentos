@@ -6,3 +6,5 @@ from app.model.repository.interaction import Interaction
 class InteractionService:
 
     ...
+
+
